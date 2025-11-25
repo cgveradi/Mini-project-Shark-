@@ -77,30 +77,19 @@ You run a surf shop that offers **surf lessons, rentals, and safety training**. 
 
 ### 🖥 Dev Team
 
-Objective: Clean and standardize the dataset to make analysis easier and reduce unnecessary variation in outputs.
+**Objective:** Clean and standardize the dataset to make analysis easier and reduce unnecessary variation in outputs.
 
-Example: Standardizing the Sex column
+**Example: Standardizing the `Sex` column**
 
-The dataset may have inconsistent values like M, Male, male, F, Female, or missing values. To unify these entries, we define a new column new_sex and map all variations to male, female, or unknown:
+The dataset may have inconsistent values like `M`, `Male`, `male`, `F`, `Female`, or missing values. To unify these entries, we define a new column `new_sex` and map all variations to `male`, `female`, or `unknown`:
 
+```python
 shark_df["new_sex"] = [
-"male" if str(x).lower().startswith("m")
-else "female" if str(x).lower().startswith("f")
-else "unknown"
-for x in shark_df['Sex']
+    "male" if str(x).lower().startswith("m")
+    else "female" if str(x).lower().startswith("f")
+    else "unknown"
+    for x in shark_df['Sex']
 ]
-
-Explanation:
-
-str(x).lower().startswith("m") → detects all variations of male.
-
-str(x).lower().startswith("f") → detects all variations of female.
-
-Anything else is labeled "unknown".
-
-This reduces inconsistencies and makes later analysis simpler.
-
----
 
 ### 🔬 Research Team
 
@@ -142,3 +131,4 @@ After reviewing REGEX techniques, we will implement code to clean and standardiz
   ***
 
   ***
+```
